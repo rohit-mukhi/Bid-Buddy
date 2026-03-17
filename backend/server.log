@@ -1,0 +1,113 @@
+
+> bid-biddy-backend@1.0.0 start
+> node index.js
+
+✅ New connection established to Supabase PostgreSQL
+✅ New connection established to Supabase PostgreSQL
+✅ Database connection test successful: 2026-03-16T16:06:13.707Z
+Database tables created successfully
+✅ Migration: Added credits column to users table
+✅ Migration: Ensured credit_transactions table exists
+✅ Migration: Created index on credit_transactions
+🔄 Running auction-specific credits migration...
+✅ Created auction_credits table
+✅ Added auction_id to credit_transactions
+✅ Created indexes
+✅ Auction-specific credits migration completed
+Server running on port 3000
+WebSocket server ready
+📊 Connection Pool Stats: {
+  totalConnections: 2,
+  idleConnections: 2,
+  waitingRequests: 0,
+  activeConnections: 0
+}
+Auction settlement service started (runs every 30 seconds)
+User connected: A3ncKdGckgAodzDWAAAB
+User A3ncKdGckgAodzDWAAAB joined auction 8
+User A3ncKdGckgAodzDWAAAB left auction 8
+User A3ncKdGckgAodzDWAAAB joined auction 8
+[STATUS CHECK] Checking status for user 3 on auction 8
+[STATUS CHECK] bidding_requests query returned 0 rows: []
+[STATUS CHECK] auction_bidders query returned 0 rows
+[STATUS CHECK] No request found, returning 'none'
+[STATUS CHECK] Checking status for user 3 on auction 8
+[STATUS CHECK] bidding_requests query returned 0 rows: []
+[STATUS CHECK] auction_bidders query returned 0 rows
+[STATUS CHECK] No request found, returning 'none'
+✅ New connection established to Supabase PostgreSQL
+✅ New connection established to Supabase PostgreSQL
+User A3ncKdGckgAodzDWAAAB left auction 8
+User A3ncKdGckgAodzDWAAAB joined auction 7
+User A3ncKdGckgAodzDWAAAB left auction 7
+User A3ncKdGckgAodzDWAAAB joined auction 7
+[STATUS CHECK] Checking status for user 3 on auction 7
+[STATUS CHECK] bidding_requests query returned 0 rows: []
+[STATUS CHECK] auction_bidders query returned 0 rows
+[STATUS CHECK] No request found, returning 'none'
+[STATUS CHECK] Checking status for user 3 on auction 7
+[STATUS CHECK] bidding_requests query returned 0 rows: []
+[STATUS CHECK] auction_bidders query returned 0 rows
+[STATUS CHECK] No request found, returning 'none'
+User A3ncKdGckgAodzDWAAAB left auction 7
+User disconnected: A3ncKdGckgAodzDWAAAB
+⚠️ Connection removed from pool
+⚠️ Connection removed from pool
+Error fetching auctions: Error: Connection terminated due to connection timeout
+    at /home/master/Anonymous/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///home/master/Anonymous/backend/api/routes/auctions.js:16:20 {
+  [cause]: Error: Connection terminated unexpectedly
+      at Connection.<anonymous> (/home/master/Anonymous/backend/node_modules/pg/lib/client.js:180:73)
+      at Object.onceWrapper (node:events:632:28)
+      at Connection.emit (node:events:518:28)
+      at Socket.<anonymous> (/home/master/Anonymous/backend/node_modules/pg/lib/connection.js:61:12)
+      at Socket.emit (node:events:530:35)
+      at TCP.<anonymous> (node:net:351:12)
+}
+User connected: udabIhJk3TCbMS2RAAAD
+User udabIhJk3TCbMS2RAAAD joined auction 8
+User udabIhJk3TCbMS2RAAAD left auction 8
+User udabIhJk3TCbMS2RAAAD joined auction 8
+[STATUS CHECK] Checking status for user 3 on auction 8
+[STATUS CHECK] bidding_requests query returned 1 rows: [ { status: 'approved' } ]
+[STATUS CHECK] Returning status from bidding_requests: approved
+[STATUS CHECK] Checking status for user 3 on auction 8
+[STATUS CHECK] bidding_requests query returned 1 rows: [ { status: 'approved' } ]
+[STATUS CHECK] Returning status from bidding_requests: approved
+✅ New connection established to Supabase PostgreSQL
+✅ New connection established to Supabase PostgreSQL
+User udabIhJk3TCbMS2RAAAD left auction 8
+⚠️ Connection removed from pool
+⚠️ Connection removed from pool
+User udabIhJk3TCbMS2RAAAD joined auction 7
+User udabIhJk3TCbMS2RAAAD left auction 7
+User udabIhJk3TCbMS2RAAAD joined auction 7
+[STATUS CHECK] Checking status for user 3 on auction 7
+[STATUS CHECK] bidding_requests query returned 1 rows: [ { status: 'approved' } ]
+[STATUS CHECK] Returning status from bidding_requests: approved
+[STATUS CHECK] Checking status for user 3 on auction 7
+[STATUS CHECK] bidding_requests query returned 1 rows: [ { status: 'approved' } ]
+[STATUS CHECK] Returning status from bidding_requests: approved
+✅ New connection established to Supabase PostgreSQL
+✅ New connection established to Supabase PostgreSQL
+User udabIhJk3TCbMS2RAAAD left auction 7
+⚠️ Connection removed from pool
+⚠️ Connection removed from pool
+User disconnected: udabIhJk3TCbMS2RAAAD
+/home/master/Anonymous/backend/node_modules/pg-pool/index.js:45
+    Error.captureStackTrace(err)
+          ^
+
+Error: connect ENETUNREACH 2406:da14:271:990d:909f:b422:25e2:74f2:5432 - Local (:::0)
+    at /home/master/Anonymous/backend/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Timeout.processExpiredAuctions [as _onTimeout] (file:///home/master/Anonymous/backend/services/auctionSettlement.js:7:18) {
+  errno: -101,
+  code: 'ENETUNREACH',
+  syscall: 'connect',
+  address: '2406:da14:271:990d:909f:b422:25e2:74f2',
+  port: 5432
+}
+
+Node.js v22.14.0

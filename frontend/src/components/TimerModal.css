@@ -1,0 +1,359 @@
+.timer-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1040;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.timer-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  animation: slideUp 0.3s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 90%;
+  max-width: 500px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.timer-modal-content {
+  background: var(--dark-card);
+  border: 2px solid var(--teal);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  color: var(--light-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 168, 196, 0.2);
+}
+
+.timer-modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 0.5px;
+}
+
+.timer-modal-close {
+  background: none;
+  border: none;
+  color: var(--light-text);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.timer-modal-close:hover {
+  background-color: rgba(0, 168, 196, 0.1);
+  color: var(--teal);
+}
+
+.timer-modal-body {
+  padding: 2rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Timer Inputs */
+.timer-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(0, 168, 196, 0.1) 0%, rgba(31, 58, 82, 0.1) 100%);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.75rem;
+  color: var(--muted-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.timer-input {
+  width: 70px;
+  padding: 0.75rem;
+  background: rgba(0, 168, 196, 0.1);
+  border: 2px solid var(--teal);
+  color: var(--teal);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.timer-input:focus {
+  outline: none;
+  background: rgba(0, 168, 196, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 168, 196, 0.2);
+}
+
+.timer-input::-webkit-outer-spin-button,
+.timer-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.timer-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-separator {
+  font-size: 1.75rem;
+  color: var(--teal);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0.3;
+  }
+}
+
+/* Timer Display */
+.timer-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background: rgba(0, 168, 196, 0.1);
+  border: 2px solid var(--teal);
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--teal);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.timer-display span {
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+}
+
+.display-sep {
+  min-width: auto;
+  margin: 0 0.25rem;
+}
+
+/* Modal Footer */
+.timer-modal-footer {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 168, 196, 0.2);
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.timer-modal-footer .btn {
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.timer-modal-footer .btn-primary {
+  background: var(--teal);
+  border: 2px solid var(--teal);
+  color: var(--dark-bg);
+}
+
+.timer-modal-footer .btn-primary:hover {
+  background: transparent;
+  color: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 196, 0.3);
+}
+
+.timer-modal-footer .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timer-modal {
+    width: 95%;
+    max-width: 100%;
+  }
+
+  .timer-modal-header {
+    padding: 1rem;
+  }
+
+  .timer-modal-title {
+    font-size: 1.25rem;
+  }
+
+  .timer-modal-body {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .timer-inputs {
+    padding: 1rem;
+    gap: 0.25rem;
+  }
+
+  .timer-input {
+    width: 60px;
+    padding: 0.6rem;
+    font-size: 1.25rem;
+  }
+
+  .input-separator {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .timer-display {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  .timer-display span {
+    min-width: 50px;
+  }
+
+  .timer-modal-footer {
+    padding: 1rem;
+  }
+
+  .timer-modal-footer .btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-modal {
+    width: 98%;
+  }
+
+  .timer-modal-header {
+    padding: 0.75rem;
+  }
+
+  .timer-modal-title {
+    font-size: 1.1rem;
+  }
+
+  .timer-modal-body {
+    padding: 1rem 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .timer-inputs {
+    padding: 0.75rem;
+    gap: 0.15rem;
+  }
+
+  .input-group label {
+    font-size: 0.65rem;
+  }
+
+  .timer-input {
+    width: 50px;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .input-separator {
+    font-size: 1.25rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .timer-display {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .timer-display span {
+    min-width: 40px;
+  }
+
+  .timer-modal-footer {
+    padding: 0.75rem;
+  }
+
+  .timer-modal-footer .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,15 @@
+✅ New connection established to Supabase PostgreSQL
+✅ New connection established to Supabase PostgreSQL
+✅ Database connection test successful: 2026-03-15T19:12:03.448Z
+Database tables created successfully
+✅ Migration: Added credits column to users table
+✅ Migration: Ensured credit_transactions table exists
+✅ Migration: Created index on credit_transactions
+Server running on port 3000
+WebSocket server ready
+📊 Connection Pool Stats: {
+  totalConnections: 2,
+  idleConnections: 2,
+  waitingRequests: 0,
+  activeConnections: 0
+}

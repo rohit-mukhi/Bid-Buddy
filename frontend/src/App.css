@@ -1,0 +1,829 @@
+/* Color Variables */
+:root {
+  --dark-bg: #242424;
+  --teal: #00a8c4;
+  --white: #ffffff;
+  --light-gray: #e8e8e8;
+  --dark-blue: #1f3a52;
+  --dark-card: #2d2d2d;
+  --dark-border: #3a3a3a;
+  --light-text: #f5f5f5;
+  --muted-text: #b0b0b0;
+  --accent-gold: #d4af37;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--dark-blue) 0%, rgba(0, 168, 196, 0.15) 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  margin-top: -1rem;
+  border-radius: 0 0 30px 30px;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 168, 196, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: premiumFloat 12s ease-in-out infinite, pulse 4s ease-in-out infinite;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -25%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: premiumFloat 15s ease-in-out infinite reverse, pulse 5s ease-in-out infinite 1s;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes premiumFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) rotate(5deg) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 30px) rotate(-3deg) scale(0.95);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hero-section h2 {
+  color: var(--white);
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  animation: fadeInScale 1.2s ease-out;
+}
+
+.hero-section p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+  animation: fadeInScale 1.2s ease-out 0.2s backwards;
+}
+
+.hero-section .btn {
+  animation: fadeInScale 1.2s ease-out 0.4s backwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.hero-section .btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Auction Cards */
+.auction-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 168, 196, 0.3);
+  background: var(--dark-card);
+  color: var(--light-text);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.auction-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 168, 196, 0.2);
+  border-color: var(--teal);
+  background: linear-gradient(135deg, rgba(0, 168, 196, 0.08) 0%, rgba(31, 58, 82, 0.08) 100%);
+}
+
+.auction-image-wrapper {
+  height: 200px;
+  background: var(--dark-border);
+  border-bottom: 2px solid var(--teal);
+}
+
+.auction-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.auction-card:hover .auction-img {
+  transform: scale(1.1);
+}
+
+.auction-card h5 {
+  color: var(--teal);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.auction-card .bid-amount {
+  color: var(--light-gray) !important;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.auction-card .label {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+}
+
+/* Step Cards */
+.step-card {
+  transition: all 0.3s ease;
+  background: var(--dark-card);
+  border: 1px solid rgba(31, 58, 82, 0.5);
+  color: var(--light-text);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 168, 196, 0.15);
+  border-color: var(--teal);
+  background: linear-gradient(135deg, rgba(31, 58, 82, 0.15) 0%, rgba(0, 168, 196, 0.08) 100%);
+}
+
+.step-icon {
+  font-size: 3rem;
+  animation: bounce 2s infinite;
+}
+
+.step-number span {
+  font-weight: 700;
+  color: var(--white);
+  background: var(--dark-blue) !important;
+  font-size: 1.25rem;
+  letter-spacing: 0.3px;
+}
+
+.step-card h5 {
+  color: var(--teal);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.step-card p {
+  color: var(--light-text);
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Feature Cards */
+.feature-card {
+  transition: all 0.3s ease;
+  background: var(--dark-card);
+  border: 1px solid rgba(0, 168, 196, 0.3);
+  color: var(--light-text);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 168, 196, 0.2);
+  border-color: var(--teal);
+  background: linear-gradient(135deg, rgba(0, 168, 196, 0.08) 0%, rgba(31, 58, 82, 0.08) 100%);
+}
+
+.feature-icon {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.2);
+}
+
+.feature-card h5 {
+  color: var(--teal);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  color: var(--light-text);
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* CTA Section */
+.bg-gradient {
+  background: linear-gradient(135deg, var(--dark-blue) 0%, rgba(0, 168, 196, 0.15) 100%);
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  border-top: 1px solid rgba(0, 168, 196, 0.2);
+  border-bottom: 1px solid rgba(0, 168, 196, 0.2);
+}
+
+.bg-gradient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 168, 196, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: premiumFloat 12s ease-in-out infinite, pulse 4s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+.bg-gradient h2,
+.bg-gradient p {
+  color: var(--white);
+}
+
+.bg-gradient h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.bg-gradient p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.navbar-collapse {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 60px;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(45, 45, 45, 0.6);
+    border-bottom: 2px solid var(--teal);
+    padding: 1rem 0;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    animation: slideUp 0.3s ease forwards;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-item {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0 !important;
+  }
+
+  .btn-primary {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--dark-blue);
+  border-color: var(--dark-blue);
+  color: var(--white);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+  background-color: var(--teal);
+  border-color: var(--light-gray);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(60, 110, 113, 0.3);
+}
+
+.btn-light {
+  background-color: var(--light-gray);
+  color: var(--dark-bg);
+  border: 2px solid var(--light-gray);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-light:hover {
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border-color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+.btn-bid {
+  background-color: var(--dark-blue);
+  border-color: var(--dark-blue);
+  color: var(--white);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-bid:hover {
+  background-color: var(--teal);
+  border-color: var(--teal);
+  color: var(--white);
+}
+
+/* Badge */
+.badge {
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--teal) !important;
+  color: var(--white) !important;
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+}
+
+/* Sections */
+.auctions-section {
+  background: var(--dark-bg);
+}
+
+.auctions-section h2 {
+  color: var(--teal);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.auctions-section p {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+#how-it-works {
+  background: var(--dark-bg);
+}
+
+#how-it-works h2 {
+  color: var(--teal);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+#how-it-works p {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* Stats Section */
+.bg-primary {
+  background: linear-gradient(135deg, var(--dark-blue) 0%, rgba(0, 168, 196, 0.15) 100%) !important;
+  color: var(--white);
+  border-top: 1px solid rgba(0, 168, 196, 0.2);
+  border-bottom: 1px solid rgba(0, 168, 196, 0.2);
+}
+
+.bg-primary h3 {
+  color: var(--light-gray);
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+}
+
+.bg-primary p {
+  color: var(--white);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+
+/* Features Section */
+.bg-light {
+  background: var(--dark-bg) !important;
+}
+
+.bg-light h2 {
+  color: var(--teal);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.bg-light p {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  background: var(--dark-card);
+  border-top: 1px solid rgba(0, 168, 196, 0.2);
+  border-bottom: 1px solid rgba(0, 168, 196, 0.2);
+}
+
+.newsletter-section h3 {
+  color: var(--teal);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.newsletter-section p {
+  color: var(--light-text);
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* Footer */
+.bg-dark {
+  background: var(--dark-card) !important;
+  color: var(--light-text);
+  border-top: 1px solid rgba(0, 168, 196, 0.2);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.bg-dark h5 {
+  color: var(--teal);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.bg-dark a {
+  color: var(--light-text);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+.bg-dark a:hover {
+  color: var(--teal);
+}
+
+.text-white-50 {
+  color: var(--muted-text) !important;
+  letter-spacing: 0.3px;
+}
+
+.text-white-50:hover {
+  color: var(--teal) !important;
+}
+
+/* Section Headers */
+.section-header h2 {
+  color: var(--teal);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: var(--light-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* Card Styling */
+.card {
+  background: var(--dark-card);
+  border: 1px solid rgba(0, 168, 196, 0.2);
+  color: var(--light-text);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+  color: var(--light-text);
+}
+
+.card-title {
+  color: var(--teal);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+}
+
+.card-text {
+  color: var(--light-text);
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+/* Form Controls */
+.form-control {
+  background-color: var(--dark-card);
+  border: 2px solid var(--dark-blue);
+  color: var(--light-text);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+.form-control:focus {
+  background-color: var(--dark-card);
+  border-color: var(--teal);
+  color: var(--light-text);
+  box-shadow: 0 0 0 0.2rem rgba(60, 110, 113, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--muted-text);
+  opacity: 0.8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .hero-section h2 {
+    font-size: 2.75rem;
+  }
+
+  .bg-gradient h2 {
+    font-size: 2rem;
+  }
+
+  .auctions-section h2,
+  #how-it-works h2,
+  .bg-light h2 {
+    font-size: 1.75rem;
+  }
+
+  .bg-primary h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .hero-section h2 {
+    font-size: 2rem;
+    color: var(--white);
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .display-5 {
+    font-size: 1.75rem;
+  }
+
+  .step-icon {
+    font-size: 2rem;
+  }
+
+  .auction-image-wrapper {
+    height: 150px;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .auctions-section h2,
+  #how-it-works h2,
+  .bg-light h2 {
+    font-size: 1.5rem;
+  }
+
+  .bg-gradient h2 {
+    font-size: 1.75rem;
+  }
+
+  .bg-primary h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 40px 0;
+  }
+
+  .hero-section h2 {
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+
+  .hero-section p {
+    font-size: 0.95rem;
+  }
+
+  .display-5 {
+    font-size: 1.25rem;
+  }
+
+  .btn-lg {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .auctions-section h2,
+  #how-it-works h2,
+  .bg-light h2 {
+    font-size: 1.35rem;
+  }
+
+  .bg-gradient h2 {
+    font-size: 1.5rem;
+  }
+
+  .bg-primary h3 {
+    font-size: 1.5rem;
+  }
+
+  .auction-card h5,
+  .step-card h5,
+  .feature-card h5 {
+    font-size: 1.1rem;
+  }
+}
+
+/* AOS Animation Enhancements */
+[data-aos] {
+  opacity: 0;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+
+/* Remove all custom scrollbar styling */
+::-webkit-scrollbar {
+  width: auto;
+  height: auto;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+
+/* Horizontal rule */
+hr {
+  border-color: var(--dark-border);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
